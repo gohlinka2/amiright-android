@@ -1,30 +1,38 @@
+import cz.frantisekhlinka.amiright.buildsrc.AndroidSDKVersions
+import cz.frantisekhlinka.amiright.buildsrc.ApplicationId
+import cz.frantisekhlinka.amiright.buildsrc.BuildTypes
+import cz.frantisekhlinka.amiright.buildsrc.Libraries
+import cz.frantisekhlinka.amiright.buildsrc.Plugins
+import cz.frantisekhlinka.amiright.buildsrc.ProguardFiles
+import cz.frantisekhlinka.amiright.buildsrc.Releases
+
 plugins {
     // cannot use alias here when using AGP in buildSrc (see https://github.com/gradle/gradle/issues/20084)
-    id(libs.plugins.androidApplication.get().pluginId)
-    id(libs.plugins.kotlinAndroid.get().pluginId)
-    alias(libs.plugins.kotlinCompose)
+    id(Plugins.androidApplication)
+    id(Plugins.kotlinAndroid)
+    id(Plugins.kotlinCompose)
 }
 
 android {
-    namespace = "cz.frantisekhlinka.amiright"
-    compileSdk = 35
+    namespace = ApplicationId.id
+    compileSdk = AndroidSDKVersions.targetSdk
 
     defaultConfig {
-        applicationId = "cz.frantisekhlinka.amiright"
-        minSdk = 24
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ApplicationId.id
+        minSdk = AndroidSDKVersions.minSdk
+        targetSdk = AndroidSDKVersions.targetSdk
+        versionCode = Releases.versionCode
+        versionName = Releases.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
-        release {
+        getByName(BuildTypes.RELEASE) {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(ProguardFiles.androidOptimize),
+                ProguardFiles.rules
             )
         }
     }
@@ -41,20 +49,19 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidCoreKtx)
-    implementation(libs.lifecycleKtx)
-    implementation(libs.activityCompose)
-    implementation(platform(libs.composeBom))
-    implementation(libs.compose)
-    implementation(libs.composeGraphics)
-    implementation(libs.composeToolingPreview)
-    implementation(libs.composeMaterial)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidXJunit)
-    androidTestImplementation(libs.espresso)
-    androidTestImplementation(platform(libs.composeBom))
-    androidTestImplementation(libs.composeTestJunit)
-    debugImplementation(libs.composeTooling)
-    debugImplementation(libs.composeTestManifest)
+    implementation(Libraries.androidCoreKtx)
+    implementation(Libraries.lifecycleKtx)
+    implementation(Libraries.activityCompose)
+    implementation(platform(Libraries.composeBom))
+    implementation(Libraries.compose)
+    implementation(Libraries.composeGraphics)
+    implementation(Libraries.composeToolingPreview)
+    implementation(Libraries.composeMaterial)
+    testImplementation(Libraries.junit)
+    androidTestImplementation(Libraries.androidXJunit)
+    androidTestImplementation(Libraries.espresso)
+    androidTestImplementation(platform(Libraries.composeBom))
+    androidTestImplementation(Libraries.composeTestJunit)
+    debugImplementation(Libraries.composeTooling)
+    debugImplementation(Libraries.composeTestManifest)
 }
