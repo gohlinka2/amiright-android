@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
+    // cannot use alias here when using AGP in buildSrc (see https://github.com/gradle/gradle/issues/20084)
+    id(libs.plugins.androidApplication.get().pluginId)
+    id(libs.plugins.kotlinAndroid.get().pluginId)
     alias(libs.plugins.kotlinCompose)
 }
 

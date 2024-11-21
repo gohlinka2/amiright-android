@@ -5,6 +5,7 @@ coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
+kotlinGradlePlugin = "2.0.0"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.9.3"
 composeBom = "2024.04.01"
@@ -24,6 +25,8 @@ composeToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-prev
 composeTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 composeTestJunit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 composeMaterial = { group = "androidx.compose.material3", name = "material3" }
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
