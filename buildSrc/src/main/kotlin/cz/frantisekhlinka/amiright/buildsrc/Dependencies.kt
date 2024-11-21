@@ -56,4 +56,8 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinCompose = "org.jetbrains.kotlin.plugin.compose"
+
+    // custom plugins
+    const val appCoreAndroid = "app-core-android-plugin" // has to match with occurrence in build.gradle.kts of buildSrc
+    const val appFeatureModule = "app-feature-module" // has to match with occurrence in build.gradle.kts of buildSrc
 }
