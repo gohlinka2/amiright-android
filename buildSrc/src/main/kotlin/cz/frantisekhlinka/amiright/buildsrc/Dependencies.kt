@@ -22,6 +22,10 @@ object ProguardFiles {
     const val rules = "proguard-rules.pro"
 }
 
+object Modules {
+
+}
+
 object Versions {
     const val agp = "8.7.1" // has to match with occurrence in build.gradle.kts of buildSrc
     const val kotlin = "2.0.0" // has to match with occurrence in build.gradle.kts of buildSrc
@@ -41,14 +45,17 @@ object Libraries {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKtx}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
-    const val composeBom = "androidx.compose:compose-bom:${Versions.composeBom}"
-    const val compose = "androidx.compose.ui:ui"
-    const val composeGraphics = "androidx.compose.ui:ui-graphics"
-    const val composeTooling = "androidx.compose.ui:ui-tooling"
-    const val composeToolingPreview = "androidx.compose.ui:ui-tooling-preview"
-    const val composeTestManifest = "androidx.compose.ui:ui-test-manifest"
-    const val composeTestJunit = "androidx.compose.ui:ui-test-junit4"
-    const val composeMaterial = "androidx.compose.material3:material3"
+
+    object Compose {
+        const val bom = "androidx.compose:compose-bom:${Versions.composeBom}"
+        const val compose = "androidx.compose.ui:ui"
+        const val graphics = "androidx.compose.ui:ui-graphics"
+        const val tooling = "androidx.compose.ui:ui-tooling"
+        const val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
+        const val testManifest = "androidx.compose.ui:ui-test-manifest"
+        const val testJunit = "androidx.compose.ui:ui-test-junit4"
+        const val material = "androidx.compose.material3:material3"
+    }
 }
 
 object Plugins {
