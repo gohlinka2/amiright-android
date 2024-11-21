@@ -1,5 +1,3 @@
-package cz.frantisekhlinka.amiright.buildsrc
-
 object ApplicationId {
     const val id = "cz.frantisekhlinka.amiright"
 }

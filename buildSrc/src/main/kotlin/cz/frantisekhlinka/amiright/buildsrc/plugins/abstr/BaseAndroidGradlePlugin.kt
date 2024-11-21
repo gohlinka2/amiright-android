@@ -1,6 +1,5 @@
 package cz.frantisekhlinka.amiright.buildsrc.plugins.abstr
 
-import cz.frantisekhlinka.amiright.buildsrc.*
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project

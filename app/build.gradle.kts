@@ -1,13 +1,4 @@
-import cz.frantisekhlinka.amiright.buildsrc.AndroidSDKVersions
-import cz.frantisekhlinka.amiright.buildsrc.ApplicationId
-import cz.frantisekhlinka.amiright.buildsrc.BuildTypes
-import cz.frantisekhlinka.amiright.buildsrc.Libraries
-import cz.frantisekhlinka.amiright.buildsrc.Plugins
-import cz.frantisekhlinka.amiright.buildsrc.ProguardFiles
-import cz.frantisekhlinka.amiright.buildsrc.Releases
-
 plugins {
-    // cannot use alias here when using AGP in buildSrc (see https://github.com/gradle/gradle/issues/20084)
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinCompose)
