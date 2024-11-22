@@ -1,4 +1,4 @@
-package cz.frantisekhlinka.amiright.ui.theme
+package cz.frantisekhlinka.amiright.coreui.theme
 
 import androidx.compose.ui.graphics.Color
 
