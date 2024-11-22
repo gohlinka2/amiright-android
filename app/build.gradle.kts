@@ -41,6 +41,11 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.coreUi))
+    implementation(project(Modules.backAuth))
+    implementation(project(Modules.frontAuth))
+    implementation(project(Modules.coreBack))
+
     implementation(Libraries.androidCoreKtx)
     implementation(Libraries.lifecycleKtx)
     implementation(Libraries.activityCompose)
