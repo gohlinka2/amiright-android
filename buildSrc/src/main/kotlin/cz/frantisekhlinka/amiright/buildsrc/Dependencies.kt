@@ -24,6 +24,7 @@ object ProguardFiles {
 
 object Modules {
     const val coreBack = ":coreBack"
+    const val coreUi = ":coreUi"
 
     const val backAuth = ":backAuth"
 

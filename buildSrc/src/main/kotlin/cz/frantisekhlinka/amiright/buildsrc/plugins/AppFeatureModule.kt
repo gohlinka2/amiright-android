@@ -17,6 +17,7 @@ open class AppFeatureModule : AppCoreAndroidPlugin() {
         super.configureDependencies(scope, target)
         scope.run {
             implementation(project(Modules.coreBack))
+            implementation(project(Modules.coreUi))
 
             implementation(Libraries.androidCoreKtx)
             implementation(Libraries.lifecycleKtx)
