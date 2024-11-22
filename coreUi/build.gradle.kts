@@ -1,9 +1,14 @@
 plugins {
     id(Plugins.appCoreAndroid)
+    id(Plugins.kotlinCompose)
 }
 
 android {
     namespace = "${ApplicationId.id}.coreui"
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
