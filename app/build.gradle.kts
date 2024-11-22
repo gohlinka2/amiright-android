@@ -51,6 +51,7 @@ dependencies {
     implementation(Libraries.lifecycleKtx)
     implementation(Libraries.activityCompose)
     implementation(Libraries.koinAndroid)
+    implementation(Libraries.composeNavigation)
 
     compose {
         implementation(Libraries.Compose.compose)

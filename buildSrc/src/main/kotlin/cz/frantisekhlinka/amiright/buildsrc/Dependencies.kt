@@ -46,6 +46,7 @@ object Versions {
     const val firebaseBom = "33.6.0"
     const val koin = "4.0.0"
     const val coroutinesCore = "1.9.0"
+    const val navigation = "2.8.4"
 }
 
 object Libraries {
@@ -57,6 +58,7 @@ object Libraries {
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
+    const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
 
     object Compose {
         const val bom = "androidx.compose:compose-bom:${Versions.composeBom}"

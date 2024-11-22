@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_que">AMIRIGHT?</string>
+    <string name="tagline">Find answers to burning questions.</string>
+    <string name="continue_with_google">Continue with Google</string>
+</resources>
