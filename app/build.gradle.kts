@@ -1,5 +1,3 @@
-import cz.frantisekhlinka.amiright.buildsrc.implementation
-
 plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
@@ -48,16 +46,18 @@ dependencies {
     implementation(Libraries.activityCompose)
     implementation(Libraries.koinAndroid)
 
-    implementation(platform(Libraries.Compose.bom))
-    implementation(Libraries.Compose.compose)
-    implementation(Libraries.Compose.graphics)
-    implementation(Libraries.Compose.toolingPreview)
-    implementation(Libraries.Compose.material)
+    compose {
+        implementation(Libraries.Compose.compose)
+        implementation(Libraries.Compose.graphics)
+        implementation(Libraries.Compose.toolingPreview)
+        implementation(Libraries.Compose.material)
+    }
 
-    implementation(platform(Libraries.Firebase.bom))
-    implementation(Libraries.Firebase.auth)
-    implementation(Libraries.Firebase.firestore)
-    implementation(Libraries.Firebase.functions)
+    firebase {
+        implementation(Libraries.Firebase.auth)
+        implementation(Libraries.Firebase.firestore)
+        implementation(Libraries.Firebase.functions)
+    }
 
     testImplementation(Libraries.junit)
 
