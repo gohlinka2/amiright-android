@@ -23,6 +23,8 @@ object ProguardFiles {
 }
 
 object Modules {
+    const val coreBack = ":coreBack"
+
     const val backAuth = ":backAuth"
 }
 
@@ -75,6 +77,8 @@ object Plugins {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinCompose = "org.jetbrains.kotlin.plugin.compose"
     const val googleServices = "com.google.gms.google-services"
+    const val kotlinLibrary = "org.jetbrains.kotlin.jvm"
+    const val javaLibrary = "java-library"
 
     // custom plugins
     const val appCoreAndroid = "app-core-android-plugin" // has to match with occurrence in build.gradle.kts of buildSrc

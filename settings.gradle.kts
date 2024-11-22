@@ -20,4 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AMIRIGHT"
-include(":app", ":backAuth")
+include(":app")
+include(":backAuth")
+include(":coreBack")
