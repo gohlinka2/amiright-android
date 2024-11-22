@@ -23,7 +23,7 @@ object ProguardFiles {
 }
 
 object Modules {
-
+    const val backAuth = ":backAuth"
 }
 
 object Versions {
