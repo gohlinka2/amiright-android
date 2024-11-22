@@ -7,6 +7,8 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.coreBack))
+
     firebase {
         implementation(Libraries.Firebase.auth)
     }
