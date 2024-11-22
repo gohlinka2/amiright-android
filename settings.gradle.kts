@@ -23,3 +23,4 @@ rootProject.name = "AMIRIGHT"
 include(":app")
 include(":backAuth")
 include(":coreBack")
+include(":frontAuth")

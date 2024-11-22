@@ -26,6 +26,8 @@ object Modules {
     const val coreBack = ":coreBack"
 
     const val backAuth = ":backAuth"
+
+    const val frontAuth = ":frontAuth"
 }
 
 object Versions {
