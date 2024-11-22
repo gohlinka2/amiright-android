@@ -3,4 +3,5 @@ plugins {
     id(Plugins.androidApplication) apply false
     id(Plugins.kotlinAndroid) apply false
     id(Plugins.kotlinCompose) apply false version Versions.kotlin
+    id(Plugins.googleServices) apply false version Versions.googleServices
 }

@@ -36,6 +36,8 @@ object Versions {
     const val lifecycleRuntimeKtx = "2.8.7"
     const val activityCompose = "1.9.3"
     const val composeBom = "2024.04.01"
+    const val googleServices = "4.4.2"
+    const val firebaseBom = "33.6.0"
 }
 
 object Libraries {
@@ -56,6 +58,13 @@ object Libraries {
         const val testJunit = "androidx.compose.ui:ui-test-junit4"
         const val material = "androidx.compose.material3:material3"
     }
+
+    object Firebase {
+        const val bom = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
+        const val firestore = "com.google.firebase:firebase-firestore"
+        const val auth = "com.google.firebase:firebase-auth"
+        const val functions = "com.google.firebase:firebase-functions"
+    }
 }
 
 object Plugins {
@@ -63,6 +72,7 @@ object Plugins {
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinCompose = "org.jetbrains.kotlin.plugin.compose"
+    const val googleServices = "com.google.gms.google-services"
 
     // custom plugins
     const val appCoreAndroid = "app-core-android-plugin" // has to match with occurrence in build.gradle.kts of buildSrc
