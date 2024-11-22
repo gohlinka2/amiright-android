@@ -38,6 +38,7 @@ object Versions {
     const val composeBom = "2024.04.01"
     const val googleServices = "4.4.2"
     const val firebaseBom = "33.6.0"
+    const val koin = "4.0.0"
 }
 
 object Libraries {
@@ -47,6 +48,7 @@ object Libraries {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKtx}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
+    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
 
     object Compose {
         const val bom = "androidx.compose:compose-bom:${Versions.composeBom}"
