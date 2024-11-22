@@ -45,6 +45,7 @@ dependencies {
     implementation(project(Modules.backAuth))
     implementation(project(Modules.frontAuth))
     implementation(project(Modules.coreBack))
+    implementation(project(Modules.coreData))
 
     implementation(Libraries.androidCoreKtx)
     implementation(Libraries.lifecycleKtx)
