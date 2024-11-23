@@ -7,4 +7,5 @@ val PositiveGreenHint = Color(0xFF9DD4B3)
 val NegativeRed = Color(0xFFE17676)
 val PositiveGreen = Color(0xFF97DB9B)
 
+val IndicatorColor = Color(0xFFC4C4C4)
 val HintText = Color(0xFF949494)
