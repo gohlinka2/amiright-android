@@ -22,9 +22,6 @@ internal class AuthViewModel(
 ) : ViewModel() {
 
     // in a more complex app, these events would probably be abstracted into a base ViewModel
-    private val _successEvent = MutableSharedFlow<Event<Unit>>(replay = EVENTS_REPLAY, onBufferOverflow = BufferOverflow.DROP_OLDEST)
-    val successEvent: SharedFlow<Event<Unit>> = _successEvent
-
     private val _errorEvent = MutableSharedFlow<Event<Unit>>(replay = EVENTS_REPLAY, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val errorEvent: SharedFlow<Event<Unit>> = _errorEvent
 
@@ -44,7 +41,6 @@ internal class AuthViewModel(
                 authRepo.authWithGoogleCredential(result.credential)
 
                 _isLoading.value = false
-                _successEvent.call()
             } catch (e: Exception) {
                 _isLoading.value = false
                 if (e !is GetCredentialCancellationException) {

@@ -45,12 +45,6 @@ fun AuthScreen(modifier: Modifier = Modifier) {
             snackbarHostState.showSnackbar(errorText)
         }
     }
-    LaunchedEffect(Unit) {
-        viewModel.successEvent.consume {
-            // TODO replace with navigation
-            snackbarHostState.showSnackbar("Success!")
-        }
-    }
 
     AuthScreenStateless(
         isLoading = isLoading,

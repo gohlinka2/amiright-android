@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import cz.frantisekhlinka.amiright.coreui.theme.AMIRIGHTTheme
+import cz.frantisekhlinka.amiright.launcher.ui.Launcher
 import cz.frantisekhlinka.amiright.navigation.AmirightNavHost
 import org.koin.compose.KoinContext
 
@@ -22,10 +23,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun AmirightComposeApp() {
-    val navController = rememberNavController()
     KoinContext{
         AMIRIGHTTheme {
-            AmirightNavHost(navController = navController)
+            Launcher()
         }
     }
 }
