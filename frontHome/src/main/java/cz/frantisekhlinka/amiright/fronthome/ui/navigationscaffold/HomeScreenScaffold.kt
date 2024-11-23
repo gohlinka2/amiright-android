@@ -1,4 +1,4 @@
-package cz.frantisekhlinka.amiright.fronthome.ui.screen
+package cz.frantisekhlinka.amiright.fronthome.ui.navigationscaffold
 
 import android.annotation.SuppressLint
 import androidx.annotation.StringRes

@@ -8,7 +8,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import cz.frantisekhlinka.amiright.coredata.navigation.NavigationRoute
 import cz.frantisekhlinka.amiright.coreui.views.util.DummyCenteredText
 import cz.frantisekhlinka.amiright.frontauth.ui.screen.AuthScreen
-import cz.frantisekhlinka.amiright.fronthome.ui.screen.HomeScreenScaffold
+import cz.frantisekhlinka.amiright.fronthome.ui.navigationscaffold.HomeScreenScaffold
 import cz.frantisekhlinka.amiright.launcher.ui.SplashScreen
 
 @Composable
