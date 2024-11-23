@@ -3,4 +3,5 @@
     <string name="app_name_que">AMIRIGHT?</string>
     <string name="tagline">Find answers to burning questions.</string>
     <string name="continue_with_google">Continue with Google</string>
+    <string name="an_error_occurred_please_check_your_connection">An error occurred. Please check your connection and try again.</string>
 </resources>

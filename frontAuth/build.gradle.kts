@@ -8,4 +8,6 @@ android {
 
 dependencies {
     implementation(project(Modules.backAuth))
+
+    implementation(Libraries.credentialsManager)
 }
