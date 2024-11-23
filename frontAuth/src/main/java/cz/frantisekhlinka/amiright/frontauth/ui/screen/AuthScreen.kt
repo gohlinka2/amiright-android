@@ -1,17 +1,18 @@
 package cz.frantisekhlinka.amiright.frontauth.ui.screen
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -54,7 +55,7 @@ fun AuthScreen(modifier: Modifier = Modifier) {
     AuthScreenStateless(
         isLoading = isLoading,
         onAuthWithGoogleClicked = { viewModel.authWithGoogle(context) },
-        contentSnackbarHostState = snackbarHostState,
+        snackbarHostState = snackbarHostState,
         modifier = modifier
     )
 }
@@ -64,69 +65,66 @@ fun AuthScreen(modifier: Modifier = Modifier) {
 internal fun AuthScreenStateless(
     isLoading: Boolean,
     onAuthWithGoogleClicked: () -> Unit = {},
-    contentSnackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
-    modifier: Modifier = Modifier
-) {
-    if (isLoading) {
-        AuthScreenLoading(modifier)
-    } else {
-        AuthScreenContent(onAuthWithGoogleClicked, contentSnackbarHostState, modifier)
-    }
-}
-
-@Composable
-private fun AuthScreenContent(
-    onAuthWithGoogleClicked: () -> Unit = {},
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         modifier,
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        bottomBar = {
-            SignInWithGoogleButton(
-                onAuthWithGoogleClicked,
-                Modifier
-                    .padding(32.dp)
-                    .fillMaxWidth()
-                    .safeContentPadding()
-            )
-        },
     ) { contentPadding ->
-        Surface(
-            modifier = Modifier
-                .padding(contentPadding)
-        ) {
-            Column(
-                modifier = Modifier
-                    .safeContentPadding()
-                    .padding(start = 48.dp, top = 80.dp, end = 80.dp)
-            ) {
-                Text(
-                    stringResource(R.string.app_name_que),
-                    style = MaterialTheme.typography.displayLarge,
-                )
-                Text(
-                    stringResource(R.string.tagline),
-                    style = MaterialTheme.typography.displayMedium,
-                    modifier = Modifier.padding(top = 32.dp)
-                )
-            }
+        val contentModifier = Modifier
+            .padding(contentPadding)
+            .consumeWindowInsets(contentPadding)
+        if (isLoading) {
+            AuthScreenLoading(contentModifier)
+        } else {
+            AuthScreenContent(
+                onAuthWithGoogleClicked,
+                contentModifier
+            )
         }
     }
 }
 
 @Composable
-private fun AuthScreenLoading(modifier: Modifier = Modifier) {
-    Scaffold(modifier) { contentPadding ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(contentPadding),
-            contentAlignment = Alignment.Center
+private fun AuthScreenContent(
+    onAuthWithGoogleClicked: () -> Unit = {},
+    modifier: Modifier = Modifier
+) {
+    Column(
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = modifier.fillMaxHeight()
+    ) {
+        Column(
+            modifier = Modifier.padding(start = 48.dp, top = 80.dp, end = 80.dp)
         ) {
-            CircularProgressIndicator()
+            Text(
+                stringResource(R.string.app_name_que),
+                style = MaterialTheme.typography.displayLarge,
+            )
+            Text(
+                stringResource(R.string.tagline),
+                style = MaterialTheme.typography.displayMedium,
+                modifier = Modifier.padding(top = 32.dp)
+            )
         }
+        SignInWithGoogleButton(
+            onAuthWithGoogleClicked,
+            Modifier
+                .padding(32.dp)
+                .fillMaxWidth()
+        )
+    }
+}
+
+@Composable
+private fun AuthScreenLoading(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        CircularProgressIndicator()
     }
 }
 

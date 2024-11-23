@@ -48,9 +48,9 @@ internal class AuthViewModel(
             } catch (e: Exception) {
                 _isLoading.value = false
                 if (e !is GetCredentialCancellationException) {
+                    Log.e("AuthViewModel", "Authentication error: ", e)
                     _errorEvent.call()
                 }
-                Log.e("AuthViewModel", "Authentication error: ", e)
             }
         }
     }
