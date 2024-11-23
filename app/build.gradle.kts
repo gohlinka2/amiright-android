@@ -50,7 +50,8 @@ dependencies {
     implementation(Libraries.androidCoreKtx)
     implementation(Libraries.lifecycleKtx)
     implementation(Libraries.activityCompose)
-    implementation(Libraries.koinAndroid)
+    implementation(Libraries.koinAndroidCompose)
+    implementation(Libraries.koinAndroidComposeNavigation)
     implementation(Libraries.composeNavigation)
 
     compose {

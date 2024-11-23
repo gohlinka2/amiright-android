@@ -1,12 +1,11 @@
 package cz.frantisekhlinka.amiright.di
 
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.functions.FirebaseFunctions
-import org.koin.dsl.module
+import cz.frantisekhlinka.amiright.backauth.backAuthModule
+import cz.frantisekhlinka.amiright.frontauth.frontAuthModule
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.KoinApplication
 
-val appModule = module {
-    single { FirebaseAuth.getInstance() }
-    single { FirebaseFirestore.getInstance() }
-    single { FirebaseFunctions.getInstance() }
+fun KoinApplication.initKoin() {
+    androidLogger()
+    modules(appModule, backAuthModule, frontAuthModule)
 }

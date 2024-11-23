@@ -56,7 +56,9 @@ object Libraries {
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKtx}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
-    const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
+    const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+    const val koinAndroidCompose = "io.insert-koin:koin-androidx-compose:${Versions.koin}"
+    const val koinAndroidComposeNavigation = "io.insert-koin:koin-androidx-compose-navigation:${Versions.koin}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
 
