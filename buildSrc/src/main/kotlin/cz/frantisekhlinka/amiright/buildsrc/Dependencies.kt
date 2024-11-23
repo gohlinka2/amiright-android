@@ -24,6 +24,7 @@ object ProguardFiles {
 
 object Modules {
     const val coreBack = ":coreBack"
+    const val coreFront = ":coreFront"
     const val coreUi = ":coreUi"
     const val coreData = ":coreData"
 

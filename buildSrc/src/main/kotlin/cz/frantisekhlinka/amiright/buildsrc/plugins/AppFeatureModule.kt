@@ -1,6 +1,6 @@
 package cz.frantisekhlinka.amiright.buildsrc.plugins
 
-import compose
+import featureModuleDependencies
 import implementation
 import testImplementation
 import androidTestImplementation
@@ -33,22 +33,8 @@ open class AppFeatureModule : AppCoreAndroidPlugin() {
     override fun configureDependencies(scope: DependencyHandlerScope, target: Project) {
         super.configureDependencies(scope, target)
         scope.run {
-            implementation(project(Modules.coreBack))
-            implementation(project(Modules.coreUi))
-
-            implementation(Libraries.androidCoreKtx)
-            implementation(Libraries.lifecycleKtx)
-            implementation(Libraries.activityCompose)
-            implementation(Libraries.koinAndroidCompose)
-            implementation(Libraries.koinAndroidComposeNavigation)
-            implementation(Libraries.composeNavigation)
-
-            compose {
-                implementation(Libraries.Compose.compose)
-                implementation(Libraries.Compose.graphics)
-                implementation(Libraries.Compose.toolingPreview)
-                implementation(Libraries.Compose.material)
-            }
+            implementation(project(Modules.coreFront))
+            featureModuleDependencies()
 
             testImplementation(Libraries.junit)
 
@@ -57,7 +43,6 @@ open class AppFeatureModule : AppCoreAndroidPlugin() {
             androidTestImplementation(platform(Libraries.Compose.bom))
             androidTestImplementation(Libraries.Compose.testJunit)
 
-            debugImplementation(Libraries.Compose.tooling)
             debugImplementation(Libraries.Compose.testManifest)
         }
     }
