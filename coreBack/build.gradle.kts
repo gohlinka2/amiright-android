@@ -15,5 +15,7 @@ kotlin {
 }
 
 dependencies {
+    api(project(Modules.coreData))
+
     implementation(Libraries.coroutinesCore)
 }
