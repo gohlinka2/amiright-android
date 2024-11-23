@@ -2,6 +2,7 @@ package cz.frantisekhlinka.amiright.fronthome.ui.navigationscaffold
 
 import android.annotation.SuppressLint
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Home
@@ -27,11 +28,10 @@ import cz.frantisekhlinka.amiright.coreui.theme.IndicatorColor
  * and owning the home nav host. The actual navigation logic between specific tabs is handled by the
  * navigation logic on the top level, in the app module.
  */
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreenScaffold(
     backStackEntryState: State<NavBackStackEntry?>,
-    homeNavHost: @Composable () -> Unit,
+    homeNavHost: @Composable (contentPadding: PaddingValues) -> Unit,
     navigateToTab: (String) -> Unit
 ) {
     Scaffold(
@@ -54,7 +54,7 @@ fun HomeScreenScaffold(
             }
         }
     ) {
-        homeNavHost()
+        homeNavHost(it)
     }
 }
 
