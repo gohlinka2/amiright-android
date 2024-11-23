@@ -31,6 +31,7 @@ object Modules {
     const val backAuth = ":backAuth"
 
     const val frontAuth = ":frontAuth"
+    const val frontHome = ":frontHome"
 }
 
 object Versions {

@@ -1,32 +1,27 @@
 package cz.frantisekhlinka.amiright.navigation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.consumeWindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import cz.frantisekhlinka.amiright.coredata.navigation.NavigationRoute
+import cz.frantisekhlinka.amiright.coreui.views.util.DummyCenteredText
 import cz.frantisekhlinka.amiright.frontauth.ui.screen.AuthScreen
+import cz.frantisekhlinka.amiright.fronthome.ui.screen.HomeScreenScaffold
+import cz.frantisekhlinka.amiright.launcher.ui.SplashScreen
 
 @Composable
 fun AmirightNavHost(
     isAuthenticated: Boolean?,
-    navController: NavHostController
+    rootNavController: NavHostController,
+    homeNavController: NavHostController,
 ) {
     NavHost(
-        navController = navController,
+        navController = rootNavController,
         startDestination = when (isAuthenticated) {
             null -> NavigationRoute.Splash.route
-            true -> NavigationRoute.Home.route
+            true -> NavigationRoute.Home.GRAPH_ROUTE
             false -> NavigationRoute.Auth.route
         }
     ) {
@@ -36,31 +31,31 @@ fun AmirightNavHost(
         composable(NavigationRoute.Auth.route) {
             AuthScreen()
         }
-        composable(NavigationRoute.Home.route) {
-            // TODO replace
-            Scaffold {
-                Box(
-                    Modifier.padding(it).consumeWindowInsets(it).fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text("Home")
-                }
-            }
+        composable(NavigationRoute.Home.GRAPH_ROUTE) {
+            HomeScreenScaffold(
+                backStackEntryState = homeNavController.currentBackStackEntryAsState(),
+                homeNavHost = { HomeNavHost(homeNavController) },
+                navigateToTab = { route -> homeNavController.navigateToTab(route) }
+            )
         }
     }
 }
 
+/**
+ * Nested navigation graph for the home screen tabs.
+ */
 @Composable
-private fun SplashScreen() {
-    Scaffold {
-        Box(
-            Modifier
-                .padding(it)
-                .consumeWindowInsets(it)
-                .fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            CircularProgressIndicator()
+private fun HomeNavHost(homeNavController: NavHostController) {
+    NavHost(
+        navController = homeNavController,
+        startDestination = NavigationRoute.Home.Feed.route,
+        route = NavigationRoute.Home.GRAPH_ROUTE
+    ) {
+        composable(NavigationRoute.Home.Feed.route) {
+            DummyCenteredText("Feed")
+        }
+        composable(NavigationRoute.Home.MyPosts.route) {
+            DummyCenteredText("My Posts")
         }
     }
 }

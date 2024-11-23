@@ -8,10 +8,17 @@ import cz.frantisekhlinka.amiright.launcher.viewmodel.LauncherViewModel
 import cz.frantisekhlinka.amiright.navigation.AmirightNavHost
 import org.koin.androidx.compose.koinViewModel
 
+/**
+ * The entry point of the app. Determines whether the user is authenticated and navigates to the
+ * appropriate screen.
+ */
 @Composable
 fun Launcher() {
-    val navController = rememberNavController()
+    val rootNavController = rememberNavController()
+    val homeNavController = rememberNavController()
+
     val viewModel: LauncherViewModel = koinViewModel()
     val isAuthenticated by viewModel.isAuthenticated.collectAsStateWithLifecycle()
-    AmirightNavHost(isAuthenticated, navController)
+
+    AmirightNavHost(isAuthenticated, rootNavController, homeNavController)
 }
