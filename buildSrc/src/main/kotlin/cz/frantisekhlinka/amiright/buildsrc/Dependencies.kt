@@ -48,6 +48,8 @@ object Versions {
     const val koin = "4.0.0"
     const val coroutinesCore = "1.9.0"
     const val navigation = "2.8.4"
+    const val credentialsManager = "1.3.0"
+    const val googleId = "1.1.1"
 }
 
 object Libraries {
@@ -62,6 +64,9 @@ object Libraries {
     const val koinAndroidComposeNavigation = "io.insert-koin:koin-androidx-compose-navigation:${Versions.koin}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesCore}"
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.navigation}"
+    const val credentialsManager = "androidx.credentials:credentials:${Versions.credentialsManager}"
+    const val credentialsPlayServicesAuth = "androidx.credentials:credentials-play-services-auth:${Versions.credentialsManager}"
+    const val googleId = "com.google.android.libraries.identity.googleid:googleid:${Versions.googleId}"
 
     object Compose {
         const val bom = "androidx.compose:compose-bom:${Versions.composeBom}"
