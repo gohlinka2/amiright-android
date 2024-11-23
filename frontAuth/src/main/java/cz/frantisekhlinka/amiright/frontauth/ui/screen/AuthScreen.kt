@@ -32,6 +32,9 @@ import cz.frantisekhlinka.amiright.frontauth.ui.view.SignInWithGoogleButton
 import cz.frantisekhlinka.amiright.frontauth.viewmodel.AuthViewModel
 import org.koin.androidx.compose.koinViewModel
 
+/**
+ * Shows the app name and tagline, and a button to sign in with Google.
+ */
 @Composable
 fun AuthScreen(modifier: Modifier = Modifier) {
     val viewModel: AuthViewModel = koinViewModel()
