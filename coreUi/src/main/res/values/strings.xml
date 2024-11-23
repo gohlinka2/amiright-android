@@ -6,4 +6,9 @@
     <string name="an_error_occurred_please_check_your_connection">An error occurred. Please check your connection and try again.</string>
     <string name="feed">Feed</string>
     <string name="my_posts">My Posts</string>
+    <string name="add_post">Add Post</string>
+    <string name="no_more_posts_come_back_later">No more posts. Come back later!</string>
+    <string name="vote_no">Vote no</string>
+    <string name="vote_yes">Vote yes</string>
+    <string name="next">Next</string>
 </resources>
