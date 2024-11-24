@@ -1,5 +1,6 @@
 package cz.frantisekhlinka.amiright.fronthome.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.coreback.repo.FeedPostPageData
@@ -78,7 +79,13 @@ internal class FeedViewModel(
             localVote.value = agree
             // send the vote to the server in the background
             viewModelScope.launch {
-                // TODO: call backend to vote
+                try {
+                    postRepo.reactToPost(data.post.id, agree)
+                } catch (e: Exception) {
+                    // For now, we don't handle the error, but we could for example show a snackbar to the user
+                    // and let them retry. Or cache the votes in a persistent storage and retry later.
+                    Log.e("FeedViewModel", "Failed to send vote to the server", e)
+                }
             }
         }
     }

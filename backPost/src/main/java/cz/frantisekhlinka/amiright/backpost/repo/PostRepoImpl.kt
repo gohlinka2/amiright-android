@@ -42,4 +42,6 @@ internal class PostRepoImpl(
             }
         }
     }
+
+    override suspend fun reactToPost(postId: String, agree: Boolean) = postApi.reactToPost(postId, agree)
 }

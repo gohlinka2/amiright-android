@@ -13,5 +13,6 @@ dependencies {
 
     firebase {
         implementation(Libraries.Firebase.firestore)
+        implementation(Libraries.Firebase.functions)
     }
 }

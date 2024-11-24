@@ -9,6 +9,12 @@ interface PostRepo {
      * Posts where the current user is already involved will be skipped.
      */
     fun getFeedPost(nextPostKey: Long?): Flow<FeedPostPageData>
+
+    /**
+     * Reacts to a post with the given [postId].
+     * If [agree] is true, the user agrees with the post, otherwise they disagree.
+     */
+    suspend fun reactToPost(postId: String, agree: Boolean)
 }
 
 /**
