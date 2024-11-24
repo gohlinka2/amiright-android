@@ -3,6 +3,7 @@ package cz.frantisekhlinka.amiright.coreback.communication
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import cz.frantisekhlinka.amiright.coreback.exceptions.FirestoreParseException
+import java.util.Date
 
 /**
  * Represents a firestore document or its part that can be used to retrieve its values. Any firestore document parsing in the app should be done via this class.
@@ -75,3 +76,7 @@ data class DocDataMapWrapper(private val map: Map<String, Any?>) : FirestoreDocu
 
     override fun get(key: String): Any? = map[key]
 }
+
+fun Timestamp.toLong() = toDate().time
+
+private fun Long.toFirestoreTimestamp() = Timestamp(Date(this))
