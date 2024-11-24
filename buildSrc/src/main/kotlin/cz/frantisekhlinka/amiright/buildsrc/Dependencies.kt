@@ -33,6 +33,7 @@ object Modules {
 
     const val frontAuth = ":frontAuth"
     const val frontHome = ":frontHome"
+    const val frontCreatePost = ":frontCreatePost"
 }
 
 object Versions {
