@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.backauth.repo.AuthRepo
 import cz.frantisekhlinka.amiright.coredata.util.Event
+import cz.frantisekhlinka.amiright.corefront.extensions.MutableEventFlow
 import cz.frantisekhlinka.amiright.corefront.extensions.call
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -22,7 +23,7 @@ internal class AuthViewModel(
 ) : ViewModel() {
 
     // in a more complex app, these events would probably be abstracted into a base ViewModel
-    private val _errorEvent = MutableSharedFlow<Event<Unit>>(replay = EVENTS_REPLAY, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    private val _errorEvent = MutableEventFlow<Unit>()
     val errorEvent: SharedFlow<Event<Unit>> = _errorEvent
 
     private val _isLoading = MutableStateFlow(false)
