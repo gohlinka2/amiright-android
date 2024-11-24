@@ -21,17 +21,19 @@ internal fun VoteResults(voteData: VoteData) {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Box(
-            modifier = Modifier
-                .weight(voteData.negativeVotes.toFloat())
-                .fillMaxHeight()
-                .background(color = NegativeRed)
-        )
-        Box(
-            modifier = Modifier
-                .weight(voteData.positiveVotes.toFloat())
-                .fillMaxHeight()
-                .background(color = PositiveGreen)
-        )
+        if (voteData.negativeVotes > 0)
+            Box(
+                modifier = Modifier
+                    .weight(voteData.negativeVotes.toFloat())
+                    .fillMaxHeight()
+                    .background(color = NegativeRed)
+            )
+        if (voteData.positiveVotes > 0)
+            Box(
+                modifier = Modifier
+                    .weight(voteData.positiveVotes.toFloat())
+                    .fillMaxHeight()
+                    .background(color = PositiveGreen)
+            )
     }
 }
