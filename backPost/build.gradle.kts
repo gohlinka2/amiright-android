@@ -10,4 +10,8 @@ dependencies {
     implementation(project(Modules.coreBack))
 
     implementation(Libraries.koinCore)
+
+    firebase {
+        implementation(Libraries.Firebase.firestore)
+    }
 }
