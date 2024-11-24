@@ -1,21 +1,11 @@
 plugins {
-    id(Plugins.javaLibrary)
-    id(Plugins.kotlinLibrary)
+    id(Plugins.appCoreAndroid)
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
-    }
+android {
+    namespace = "${ApplicationId.id}.coreback"
 }
 
 dependencies {
     api(project(Modules.coreData))
-
-    implementation(Libraries.coroutinesCore)
 }
