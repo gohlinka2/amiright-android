@@ -79,4 +79,4 @@ data class DocDataMapWrapper(private val map: Map<String, Any?>) : FirestoreDocu
 
 fun Timestamp.toLong() = toDate().time
 
-private fun Long.toFirestoreTimestamp() = Timestamp(Date(this))
+fun Long.toFirestoreTimestamp() = Timestamp(Date(this))
