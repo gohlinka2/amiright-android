@@ -40,7 +40,12 @@ fun FeedScreen(modifier: Modifier = Modifier) {
     val viewModel: FeedViewModel = koinViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    FeedScreenStateless(state, modifier)
+    FeedScreenStateless(
+        model = state,
+        modifier = modifier,
+        onVote = viewModel::vote,
+        onNextClicked = viewModel::nextPost
+    )
 }
 
 @Composable
@@ -48,13 +53,15 @@ internal fun FeedScreenStateless(
     model: FeedUIModel,
     modifier: Modifier = Modifier,
     onAddButtonClick: () -> Unit = {},
+    onVote: (Boolean) -> Unit = {},
+    onNextClicked: () -> Unit = {},
 ) {
     Surface {
         Box(modifier.fillMaxSize()) {
             when (model) {
                 FeedUIModel.Loading -> FeedLoading()
                 FeedUIModel.NoPosts -> FeedNoPosts()
-                is FeedUIModel.Post -> FeedPost(model)
+                is FeedUIModel.Post -> FeedPost(model, onVote, onNextClicked)
             }
             FeedHeader(
                 onAddButtonClick = onAddButtonClick,
