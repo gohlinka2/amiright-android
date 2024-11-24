@@ -8,4 +8,8 @@ android {
 
 dependencies {
     api(project(Modules.coreData))
+
+    firebase {
+        implementation(Libraries.Firebase.firestore)
+    }
 }
