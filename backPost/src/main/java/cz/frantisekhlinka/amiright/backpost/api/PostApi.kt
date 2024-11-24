@@ -60,6 +60,15 @@ internal class PostApi(
         ).await()
     }
 
+    /**
+     * Creates a new post with the given [text].
+     */
+    suspend fun createPost(text: String) {
+        firebaseFunctions.getHttpsCallable(CloudFunctionNames.NEW_POST).call(
+            mapOf(CloudFunctionParams.NewPost.TEXT to text)
+        ).await()
+    }
+
     private fun DocumentSnapshotWrapper.asPost() = Post(
         id = id,
         text = getString(FirestoreKeys.Post.TEXT),

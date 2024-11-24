@@ -36,7 +36,10 @@ import org.koin.androidx.compose.koinViewModel
  * After the user votes, the results are shown and they can move to the next post.
  */
 @Composable
-fun FeedScreen(modifier: Modifier = Modifier) {
+fun FeedScreen(
+    modifier: Modifier = Modifier,
+    navigateToCreatePost: () -> Unit = {},
+) {
     val viewModel: FeedViewModel = koinViewModel()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -44,7 +47,8 @@ fun FeedScreen(modifier: Modifier = Modifier) {
         model = state,
         modifier = modifier,
         onVote = viewModel::vote,
-        onNextClicked = viewModel::nextPost
+        onNextClicked = viewModel::nextPost,
+        onAddButtonClick = navigateToCreatePost
     )
 }
 

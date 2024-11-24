@@ -15,6 +15,11 @@ interface PostRepo {
      * If [agree] is true, the user agrees with the post, otherwise they disagree.
      */
     suspend fun reactToPost(postId: String, agree: Boolean)
+
+    /**
+     * Creates a new post with the given [text].
+     */
+    suspend fun createPost(text: String)
 }
 
 /**

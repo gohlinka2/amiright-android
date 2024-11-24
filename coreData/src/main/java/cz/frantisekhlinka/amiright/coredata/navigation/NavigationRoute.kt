@@ -24,4 +24,8 @@ sealed class NavigationRoute {
             override val route: String = "my_posts"
         }
     }
+
+    data object CreatePost : NavigationRoute() {
+        override val route: String = "create_post"
+    }
 }

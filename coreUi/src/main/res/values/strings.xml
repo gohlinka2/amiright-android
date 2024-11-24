@@ -11,4 +11,7 @@
     <string name="vote_no">Vote no</string>
     <string name="vote_yes">Vote yes</string>
     <string name="next">Next</string>
+    <string name="type_your_bold_statement_here">Type your bold statement here…</string>
+    <string name="create_a_post">Create a post</string>
+    <string name="submit">Submit</string>
 </resources>
