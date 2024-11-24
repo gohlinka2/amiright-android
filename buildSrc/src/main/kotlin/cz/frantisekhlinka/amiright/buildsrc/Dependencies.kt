@@ -29,6 +29,7 @@ object Modules {
     const val coreData = ":coreData"
 
     const val backAuth = ":backAuth"
+    const val backPost = ":backPost"
 
     const val frontAuth = ":frontAuth"
     const val frontHome = ":frontHome"

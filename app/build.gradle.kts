@@ -48,6 +48,7 @@ dependencies {
     implementation(project(Modules.coreData))
     implementation(project(Modules.coreFront))
     implementation(project(Modules.frontHome))
+    implementation(project(Modules.backPost))
 
     implementation(Libraries.androidCoreKtx)
     implementation(Libraries.lifecycleKtx)
