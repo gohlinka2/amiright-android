@@ -36,14 +36,16 @@ open class AppFrontFeatureModule : AppCoreAndroidPlugin() {
             implementation(project(Modules.coreFront))
             featureModuleDependencies()
 
-            testImplementation(Libraries.junit)
+            testImplementation(Libraries.Test.junit)
+            testImplementation(Libraries.Test.mocckK)
+            testImplementation(Libraries.Test.coroutinesTest)
 
-            androidTestImplementation(Libraries.androidXJunit)
-            androidTestImplementation(Libraries.espresso)
+            androidTestImplementation(Libraries.Test.Android.androidXJunit)
+            androidTestImplementation(Libraries.Test.Android.espresso)
             androidTestImplementation(platform(Libraries.Compose.bom))
-            androidTestImplementation(Libraries.Compose.testJunit)
+            androidTestImplementation(Libraries.Compose.Test.testJunit)
 
-            debugImplementation(Libraries.Compose.testManifest)
+            debugImplementation(Libraries.Compose.Test.testManifest)
         }
     }
 }

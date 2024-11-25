@@ -71,13 +71,13 @@ dependencies {
         implementation(Libraries.Firebase.functions)
     }
 
-    testImplementation(Libraries.junit)
+    testImplementation(Libraries.Test.junit)
 
-    androidTestImplementation(Libraries.androidXJunit)
-    androidTestImplementation(Libraries.espresso)
+    androidTestImplementation(Libraries.Test.Android.androidXJunit)
+    androidTestImplementation(Libraries.Test.Android.espresso)
     androidTestImplementation(platform(Libraries.Compose.bom))
-    androidTestImplementation(Libraries.Compose.testJunit)
+    androidTestImplementation(Libraries.Compose.Test.testJunit)
 
     debugImplementation(Libraries.Compose.tooling)
-    debugImplementation(Libraries.Compose.testManifest)
+    debugImplementation(Libraries.Compose.Test.testManifest)
 }

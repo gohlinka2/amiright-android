@@ -53,13 +53,11 @@ object Versions {
     const val navigation = "2.8.4"
     const val credentialsManager = "1.3.0"
     const val googleId = "1.1.1"
+    const val mockK = "1.13.13"
 }
 
 object Libraries {
     const val androidCoreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
-    const val junit = "junit:junit:${Versions.junit}"
-    const val androidXJunit = "androidx.test.ext:junit:${Versions.junitVersion}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val lifecycleKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleRuntimeKtx}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
@@ -75,11 +73,15 @@ object Libraries {
         const val bom = "androidx.compose:compose-bom:${Versions.composeBom}"
         const val compose = "androidx.compose.ui:ui"
         const val graphics = "androidx.compose.ui:ui-graphics"
+        const val material = "androidx.compose.material3:material3"
+
         const val tooling = "androidx.compose.ui:ui-tooling"
         const val toolingPreview = "androidx.compose.ui:ui-tooling-preview"
-        const val testManifest = "androidx.compose.ui:ui-test-manifest"
-        const val testJunit = "androidx.compose.ui:ui-test-junit4"
-        const val material = "androidx.compose.material3:material3"
+
+        object Test {
+            const val testJunit = "androidx.compose.ui:ui-test-junit4"
+            const val testManifest = "androidx.compose.ui:ui-test-manifest"
+        }
     }
 
     object Firebase {
@@ -87,6 +89,17 @@ object Libraries {
         const val firestore = "com.google.firebase:firebase-firestore"
         const val auth = "com.google.firebase:firebase-auth"
         const val functions = "com.google.firebase:firebase-functions"
+    }
+
+    object Test {
+        const val junit = "junit:junit:${Versions.junit}"
+        const val mocckK = "io.mockk:mockk:${Versions.mockK}"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesCore}"
+
+        object Android {
+            const val androidXJunit = "androidx.test.ext:junit:${Versions.junitVersion}"
+            const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+        }
     }
 }
 

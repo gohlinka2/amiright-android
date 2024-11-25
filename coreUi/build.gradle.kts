@@ -20,7 +20,7 @@ dependencies {
     }
 
     androidTestImplementation(platform(Libraries.Compose.bom))
-    androidTestImplementation(Libraries.Compose.testJunit)
+    androidTestImplementation(Libraries.Compose.Test.testJunit)
 
     debugImplementation(Libraries.Compose.tooling)
 }
