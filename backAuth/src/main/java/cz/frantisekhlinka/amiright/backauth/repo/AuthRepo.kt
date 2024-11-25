@@ -20,6 +20,10 @@ import kotlinx.coroutines.tasks.await
 
 /**
  * Exposes functionality to authenticate the user or retrieve the current auth state.
+ *
+ * This is purposefully not internal, because we expose the whole [AuthRepo] to the frontAuth module using a
+ * direct dependency. This is so that the auth UI module can see the authWithX methods, while the rest of the app
+ * only gets the [IAuthStateRepo] interface.
  */
 class AuthRepo internal constructor(
     private val firebaseAuth: FirebaseAuth,
