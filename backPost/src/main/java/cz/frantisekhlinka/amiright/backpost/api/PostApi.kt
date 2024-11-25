@@ -47,6 +47,12 @@ internal class PostApi(
     fun getPostById(postId: String): Flow<Post?> =
         firebaseFirestore.collection(FirestoreKeys.POSTS).document(postId).toModelFlow { asPost() }
 
+    fun getPostsByAuthorUid(authorUid: String): Flow<List<Post>> =
+        firebaseFirestore.collection(FirestoreKeys.POSTS)
+            .whereEqualTo(FirestoreKeys.Post.AUTHOR_UID, authorUid)
+            .orderBy(FirestoreKeys.Post.UPDATED_AT, Query.Direction.DESCENDING)
+            .toModelFlow { asPost() }
+
     /**
      * Reacts to a post with the given [postId].
      * If [agree] is true, the user agrees with the post, otherwise they disagree.

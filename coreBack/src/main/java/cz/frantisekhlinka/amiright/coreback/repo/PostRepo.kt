@@ -20,6 +20,11 @@ interface PostRepo {
      * Creates a new post with the given [text].
      */
     suspend fun createPost(text: String)
+
+    /**
+     * Gets all posts created by the current user.
+     */
+    fun getMyPosts(): Flow<List<Post>>
 }
 
 /**

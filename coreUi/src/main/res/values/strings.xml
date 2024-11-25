@@ -14,4 +14,6 @@
     <string name="type_your_bold_statement_here">Type your bold statement here…</string>
     <string name="create_a_post">Create a post</string>
     <string name="submit">Submit</string>
+    <string name="my_posts_title">My posts</string>
+    <string name="you_have_no_posts_yet">You have no posts yet. Tap the plus button to create one!</string>
 </resources>

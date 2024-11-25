@@ -46,4 +46,9 @@ internal class PostRepoImpl(
     override suspend fun reactToPost(postId: String, agree: Boolean) = postApi.reactToPost(postId, agree)
 
     override suspend fun createPost(text: String) = postApi.createPost(text)
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    override fun getMyPosts() = authStateRepo.getCurrentUidFlow().flatMapLatest {
+        it?.let { postApi.getPostsByAuthorUid(it) } ?: flowOf(emptyList())
+    }
 }

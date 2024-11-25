@@ -14,6 +14,7 @@ import cz.frantisekhlinka.amiright.frontauth.ui.screen.AuthScreen
 import cz.frantisekhlinka.amiright.frontcreatepost.ui.screen.CreatePostScreen
 import cz.frantisekhlinka.amiright.fronthome.ui.navigationscaffold.HomeScreenScaffold
 import cz.frantisekhlinka.amiright.fronthome.ui.screen.FeedScreen
+import cz.frantisekhlinka.amiright.fronthome.ui.screen.MyPostsScreen
 import cz.frantisekhlinka.amiright.launcher.ui.SplashScreen
 
 @Composable
@@ -83,7 +84,7 @@ private fun HomeNavHost(
             FeedScreen(navigateToCreatePost = navigateToCreatePost)
         }
         composable(NavigationRoute.Home.MyPosts.route) {
-            DummyCenteredText("My Posts")
+            MyPostsScreen(navigateToCreatePost = navigateToCreatePost)
         }
     }
 }

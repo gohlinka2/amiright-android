@@ -182,11 +182,3 @@ private fun FeedNoPostsPreview() {
         FeedNoPosts()
     }
 }
-
-@Preview
-@Composable
-private fun HeaderPreview() {
-    AMIRIGHTTheme {
-        FeedHeader()
-    }
-}
