@@ -14,7 +14,7 @@ import org.gradle.kotlin.dsl.project
 /**
  * A plugin for a feature module that contains UI.
  */
-open class AppFeatureModule : AppCoreAndroidPlugin() {
+open class AppFrontFeatureModule : AppCoreAndroidPlugin() {
 
     override fun configurePlugins(container: PluginContainer) {
         super.configurePlugins(container)

@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.appFeatureModule)
+    id(Plugins.appFrontFeatureModule)
 }
 
 android {

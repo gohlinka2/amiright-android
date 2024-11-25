@@ -16,9 +16,13 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("app-feature-module-plugin") {
-            id = "app-feature-module" // this has to match with appFeatureModule constant in Dependencies.kt
-            implementationClass = "cz.frantisekhlinka.amiright.buildsrc.plugins.AppFeatureModule"
+        create("app-front-feature-module-plugin") {
+            id = "app-front-feature-module" // this has to match with appFeatureModule constant in Dependencies.kt
+            implementationClass = "cz.frantisekhlinka.amiright.buildsrc.plugins.AppFrontFeatureModule"
+        }
+        create("app-back-feature-module-plugin") {
+            id = "app-back-feature-module" // this has to match with appFeatureModule constant in Dependencies.kt
+            implementationClass = "cz.frantisekhlinka.amiright.buildsrc.plugins.AppBackFeatureModule"
         }
         create("app-core-android-plugin") {
             id = "app-core-android-plugin" // this has to match with appCoreAndroid constant in Dependencies.kt

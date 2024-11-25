@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.appCoreAndroid)
+    id(Plugins.appBackFeatureModule)
 }
 
 android {
@@ -7,10 +7,6 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.coreBack))
-
-    implementation(Libraries.koinCore)
-
     firebase {
         implementation(Libraries.Firebase.firestore)
         implementation(Libraries.Firebase.functions)

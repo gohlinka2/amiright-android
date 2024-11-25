@@ -101,5 +101,6 @@ object Plugins {
 
     // custom plugins
     const val appCoreAndroid = "app-core-android-plugin" // has to match with occurrence in build.gradle.kts of buildSrc
-    const val appFeatureModule = "app-feature-module" // has to match with occurrence in build.gradle.kts of buildSrc
+    const val appFrontFeatureModule = "app-front-feature-module" // has to match with occurrence in build.gradle.kts of buildSrc
+    const val appBackFeatureModule = "app-back-feature-module" // has to match with occurrence in build.gradle.kts of buildSrc
 }
