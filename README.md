@@ -28,7 +28,7 @@ There are 3 kinds of modules:
 
 The **app** module ties it all together, depending on all other modules and owning the navigation and DI.
 
-On top of the build stack is **buildSrc** which provides dependency notations for other modules and also implements custom Gradle Plugins, so that the build scripts of other modules can remain nice and clean.
+On top of the build stack is **buildSrc** which provides dependency notations for other modules and also implements custom Gradle Plugins, so that the build scripts of other modules can remain nice and clean. Check [AppFrontFeatureModule](./buildSrc/src/main/kotlin/cz/frantisekhlinka/amiright/buildsrc/plugins/AppFrontFeatureModule.kt) to see an example of this.
 
 # Backend
 
