@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -29,13 +30,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cz.frantisekhlinka.amiright.corefront.extensions.consume
 import cz.frantisekhlinka.amiright.coreui.R
 import cz.frantisekhlinka.amiright.coreui.theme.AMIRIGHTTheme
 import cz.frantisekhlinka.amiright.coreui.theme.HintText
+import cz.frantisekhlinka.amiright.coreui.theme.TopAppBarColor
 import cz.frantisekhlinka.amiright.frontcreatepost.viewmodel.CreatePostState
 import cz.frantisekhlinka.amiright.frontcreatepost.viewmodel.CreatePostViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -101,7 +105,11 @@ internal fun CreatePostScreenStateless(
                 title = {
                     Text(
                         stringResource(R.string.create_a_post),
-                        style = MaterialTheme.typography.titleSmall
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            color = MaterialTheme.colorScheme.onSurface,
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Normal
+                        )
                     )
                 },
                 navigationIcon = {
@@ -110,6 +118,9 @@ internal fun CreatePostScreenStateless(
                         content = { Icon(Icons.AutoMirrored.Rounded.ArrowBack, null) }
                     )
                 },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = TopAppBarColor
+                )
             )
         }
     ) { contentPadding ->

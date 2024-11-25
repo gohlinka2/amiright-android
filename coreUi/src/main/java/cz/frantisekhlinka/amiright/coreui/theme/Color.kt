@@ -8,4 +8,5 @@ val NegativeRed = Color(0xFFE17676)
 val PositiveGreen = Color(0xFF97DB9B)
 
 val IndicatorColor = Color(0xFFC4C4C4)
+val TopAppBarColor = Color(0xFFEFEFEF)
 val HintText = Color(0xFF949494)
