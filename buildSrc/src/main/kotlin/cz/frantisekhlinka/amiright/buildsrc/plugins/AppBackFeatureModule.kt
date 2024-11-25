@@ -23,6 +23,7 @@ open class AppBackFeatureModule : AppCoreAndroidPlugin() {
             testImplementation(Libraries.Test.junit)
             testImplementation(Libraries.Test.mocckK)
             testImplementation(Libraries.Test.coroutinesTest)
+            testImplementation(project(Modules.coreTest))
         }
     }
 }

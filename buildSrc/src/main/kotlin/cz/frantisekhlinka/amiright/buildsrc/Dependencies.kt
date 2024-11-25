@@ -27,6 +27,7 @@ object Modules {
     const val coreFront = ":coreFront"
     const val coreUi = ":coreUi"
     const val coreData = ":coreData"
+    const val coreTest = ":coreTest"
 
     const val backAuth = ":backAuth"
     const val backPost = ":backPost"

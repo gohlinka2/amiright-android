@@ -93,7 +93,6 @@ internal class PostRepoTest {
 
         assert(results.size == 2)
         // assert that it emits only the 2 updates of the second post
-        print(results.joinToString { (it as FeedPostPageData.Loaded).post.id })
         assert(results.all { it is FeedPostPageData.Loaded && it.post.id == "${postIdPrefix}1" })
         val secondResult = results[1] as FeedPostPageData.Loaded
         // The key of the next post to load should be the timestamp of the initial state of the currently displayed

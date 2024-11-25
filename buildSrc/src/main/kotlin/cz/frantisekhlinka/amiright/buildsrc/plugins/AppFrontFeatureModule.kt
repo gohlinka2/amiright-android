@@ -39,6 +39,7 @@ open class AppFrontFeatureModule : AppCoreAndroidPlugin() {
             testImplementation(Libraries.Test.junit)
             testImplementation(Libraries.Test.mocckK)
             testImplementation(Libraries.Test.coroutinesTest)
+            testImplementation(project(Modules.coreTest))
 
             androidTestImplementation(Libraries.Test.Android.androidXJunit)
             androidTestImplementation(Libraries.Test.Android.espresso)

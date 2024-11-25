@@ -24,6 +24,7 @@ There are 3 kinds of modules:
   - **coreUi**: provides common UI logic.
   - **coreData**: hosts the app's models.
   - **coreBack**/**coreFront**: hold common logic that all front/back modules can depend on.
+  - **coreTest**: provides common test utilities.
 
 The **app** module ties it all together, depending on all other modules and owning the navigation and DI.
 
