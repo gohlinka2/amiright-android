@@ -119,9 +119,9 @@ private fun FeedPost(
         val voteData = state.voteData
         if (voteData == null) {
             VoteTouchTargets(onVote)
-        } else {
-            VoteResults(voteData)
         }
+        // vote results need to be included all the time because of the animation
+        VoteResults(voteData)
         if (voteData == null) {
             VoteIndicators(
                 Modifier
