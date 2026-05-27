@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.coreback.repo.PostRepo
 import cz.frantisekhlinka.amiright.coredata.util.Event
+import cz.frantisekhlinka.amiright.corefront.extensions.BaseViewModel
 import cz.frantisekhlinka.amiright.corefront.extensions.MutableEventFlow
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
@@ -18,7 +19,7 @@ import kotlinx.coroutines.launch
 
 internal class CreatePostViewModel(
     private val postRepo: PostRepo
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _text = MutableStateFlow("")
     private val isLoading = MutableStateFlow(false)
@@ -33,7 +34,7 @@ internal class CreatePostViewModel(
         } else {
             CreatePostState.Idle(text)
         }
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, CreatePostState.Idle(""))
+    }.stateInViewModel(CreatePostState.Idle(""))
 
     /**
      * Updates the current editor text.

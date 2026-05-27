@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.backauth.repo.AuthRepo
 import cz.frantisekhlinka.amiright.coredata.util.Event
+import cz.frantisekhlinka.amiright.corefront.extensions.BaseViewModel
 import cz.frantisekhlinka.amiright.corefront.extensions.MutableEventFlow
 import cz.frantisekhlinka.amiright.corefront.extensions.call
 import kotlinx.coroutines.currentCoroutineContext
@@ -20,7 +21,7 @@ import kotlinx.coroutines.launch
 internal class AuthViewModel(
     private val authRepo: AuthRepo,
     private val credentialManager: CredentialManager
-) : ViewModel() {
+) : BaseViewModel() {
 
     // in a more complex app, these events would probably be abstracted into a base ViewModel
     private val _errorEvent = MutableEventFlow<Unit>()

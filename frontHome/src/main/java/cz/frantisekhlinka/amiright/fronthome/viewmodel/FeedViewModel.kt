@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.coreback.repo.FeedPostPageData
 import cz.frantisekhlinka.amiright.coreback.repo.IAuthStateRepo
 import cz.frantisekhlinka.amiright.coreback.repo.PostRepo
+import cz.frantisekhlinka.amiright.corefront.extensions.BaseViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.ensureActive
@@ -22,7 +23,7 @@ import kotlinx.coroutines.launch
 internal class FeedViewModel(
     private val authStateRepo: IAuthStateRepo,
     private val postRepo: PostRepo
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val lastPostKey = MutableStateFlow<Long?>(null)
 
@@ -37,7 +38,7 @@ internal class FeedViewModel(
             emit(null)
             emitAll(postRepo.getFeedPost(it))
         }
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, null)
+    }.stateInViewModel()
 
     val state = combine(_postData, localVote) { postPageData, agreed ->
         when (postPageData) {
@@ -69,7 +70,7 @@ internal class FeedViewModel(
             FeedPostPageData.NoMorePosts -> FeedUIModel.NoPosts
             null -> FeedUIModel.Loading
         }
-    }.stateIn(viewModelScope, SharingStarted.Eagerly, FeedUIModel.Loading)
+    }.stateInViewModel(FeedUIModel.Loading)
 
     /**
      * Votes on the current post.
