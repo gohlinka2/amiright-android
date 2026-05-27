@@ -8,10 +8,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.backauth.repo.AuthRepo
 import cz.frantisekhlinka.amiright.coredata.util.Event
+import cz.frantisekhlinka.amiright.corefront.extensions.BaseViewModel
 import cz.frantisekhlinka.amiright.corefront.extensions.MutableEventFlow
 import cz.frantisekhlinka.amiright.corefront.extensions.call
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,7 +21,7 @@ import kotlinx.coroutines.launch
 internal class AuthViewModel(
     private val authRepo: AuthRepo,
     private val credentialManager: CredentialManager
-) : ViewModel() {
+) : BaseViewModel() {
 
     // in a more complex app, these events would probably be abstracted into a base ViewModel
     private val _errorEvent = MutableEventFlow<Unit>()
@@ -43,6 +44,7 @@ internal class AuthViewModel(
 
                 _isLoading.value = false
             } catch (e: Exception) {
+                currentCoroutineContext().ensureActive()
                 _isLoading.value = false
                 if (e !is GetCredentialCancellationException) {
                     Log.e("AuthViewModel", "Authentication error: ", e)
