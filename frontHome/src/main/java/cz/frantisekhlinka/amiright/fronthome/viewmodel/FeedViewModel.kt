@@ -7,6 +7,8 @@ import cz.frantisekhlinka.amiright.coreback.repo.FeedPostPageData
 import cz.frantisekhlinka.amiright.coreback.repo.IAuthStateRepo
 import cz.frantisekhlinka.amiright.coreback.repo.PostRepo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -82,6 +84,7 @@ internal class FeedViewModel(
                 try {
                     postRepo.reactToPost(data.post.id, agree)
                 } catch (e: Exception) {
+                    currentCoroutineContext().ensureActive()
                     // For now, we don't handle the error, but we could for example show a snackbar to the user
                     // and let them retry. Or cache the votes in a persistent storage and retry later.
                     Log.e("FeedViewModel", "Failed to send vote to the server", e)

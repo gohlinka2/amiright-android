@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import cz.frantisekhlinka.amiright.coreback.repo.PostRepo
 import cz.frantisekhlinka.amiright.coredata.util.Event
 import cz.frantisekhlinka.amiright.corefront.extensions.MutableEventFlow
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -53,6 +55,7 @@ internal class CreatePostViewModel(
                     postRepo.createPost(currentState.text)
                     _saveResultEvent.emit(Event(true))
                 } catch (e: Exception) {
+                    currentCoroutineContext().ensureActive()
                     Log.e("CreatePostViewModel", "Error creating post", e)
                     _saveResultEvent.emit(Event(false))
                 } finally {
